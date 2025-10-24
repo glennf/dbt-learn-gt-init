@@ -1,0 +1,26 @@
+models:
+- name: stg_stripe__payments
+  description: This model processes payment data from Stripe, converting amounts from
+    cents to dollars and renaming fields for consistency and clarity. It serves as
+    a foundational layer for analyzing payment transactions, including details such
+    as payment method, status, and creation time.
+  columns:
+  - name: payment_id
+    description: A unique identifier for each payment transaction.
+    data_tests:
+      - unique
+      - not_null
+  - name: order_id
+    description: The identifier for the order associated with the payment.
+    data_tests:
+      - not_null
+  - name: payment_method
+    description: The method used to process the payment, such as credit card or bank
+      transfer.
+  - name: status
+    description: The current status of the payment, indicating whether it is completed,
+      pending, or failed.
+  - name: amount
+    description: The total amount of the payment in dollars.
+  - name: created_as
+    description: The timestamp when the payment was created.
